@@ -6,8 +6,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
+
+    TextView calcView;
 
     Button btnDivision;
     Button btnMult;
@@ -38,6 +42,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        calcView = findViewById(R.id.calcView);
 
         btnDivision = findViewById((R.id.division));
         btnDivision.setOnClickListener(this);
@@ -87,7 +93,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View v) {
+        String number = calcView.getText().toString();
+        switch (v.getId()) {
+            case R.id.btnNumOne: number = number + "1";
+            break;
+        }
 
+        if (v.getId() == R.id.btnNumOne) {
+            number = number + "1";
+        }
     }
 }

@@ -15,10 +15,11 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/historyView"
             android:textSize="30sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/gray"
             android:layout_margin="5dp"
             android:text="History" />
 
@@ -30,12 +31,13 @@
             android:background="?android:attr/listDivider" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/calcView"
             android:textSize="30sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/gray"
             android:layout_margin="5dp"
-            android:text="Current calculation" />
+            android:text="0" />
 
         <View
             android:id="@+id/divider2"
@@ -62,10 +64,10 @@
                 android:id="@+id/division"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="/" />
+                android:text="/"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/multiply"
