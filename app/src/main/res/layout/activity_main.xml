@@ -105,6 +105,7 @@
 
             <Button
                 android:id="@+id/seven"
+                android:onClick="clickDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -115,6 +116,7 @@
 
             <Button
                 android:id="@+id/eight"
+                android:onClick="clickDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -125,6 +127,7 @@
 
             <Button
                 android:id="@+id/nine"
+                android:onClick="clickDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -151,6 +154,7 @@
 
             <Button
                 android:id="@+id/four"
+                android:onClick="clickDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -161,6 +165,7 @@
 
             <Button
                 android:id="@+id/five"
+                android:onClick="clickDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -171,6 +176,7 @@
 
             <Button
                 android:id="@+id/six"
+                android:onClick="clickDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -196,6 +202,7 @@
 
             <Button
                 android:id="@+id/one"
+                android:onClick="clickDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -206,6 +213,7 @@
 
             <Button
                 android:id="@+id/two"
+                android:onClick="clickDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -216,6 +224,7 @@
 
             <Button
                 android:id="@+id/three"
+                android:onClick="clickDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -241,16 +250,18 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/comma"
+                android:id="@+id/dot"
+                android:onClick="clickDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="," />
+                android:text="." />
 
             <Button
                 android:id="@+id/zero"
+                android:onClick="clickDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"

@@ -9,34 +9,37 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     TextView calcView;
+    Boolean isNewNumber = true;
+    String firstOperand;
+    String operator;
 
-    Button btnDivision;
-    Button btnMult;
-    Button btnSubstr;
-    Button btnSum;
-
-    Button btnNumSeven;
-    Button btnNumEight;
-    Button btnNumNine;
-    Button btnSqrt;
-
-    Button btnNumFour;
-    Button btnNumFive;
-    Button btnNumSix;
-    Button btnSq;
-
-    Button btnNumOne;
-    Button btnNumTwo;
-    Button btnNumThree;
-    Button btnEqual;
-
-    Button btnComma;
-    Button btnZero;
-    Button btnPercent;
-    Button btnCalc;
+//    Button btnDivision;
+//    Button btnMult;
+//    Button btnSubstr;
+//    Button btnSum;
+//
+//    Button btnNumSeven;
+//    Button btnNumEight;
+//    Button btnNumNine;
+//    Button btnSqrt;
+//
+//    Button btnNumFour;
+//    Button btnNumFive;
+//    Button btnNumSix;
+//    Button btnSq;
+//
+//    Button btnNumOne;
+//    Button btnNumTwo;
+//    Button btnNumThree;
+//    Button btnEqual;
+//
+//    Button btnDot;
+//    Button btnZero;
+//    Button btnPercent;
+//    Button btnCalc;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,55 +48,58 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         calcView = findViewById(R.id.calcView);
 
-        btnDivision = findViewById((R.id.division));
-        btnDivision.setOnClickListener(this);
-        btnMult = findViewById((R.id.multiply));
-        btnMult.setOnClickListener(this);
-        btnSubstr = findViewById(R.id.subtraction);
-        btnSubstr.setOnClickListener(this);
-        btnSum = findViewById(R.id.sum);
-        btnSum.setOnClickListener(this);
-
-        btnNumSeven = findViewById(R.id.seven);
-        btnNumSeven.setOnClickListener(this);
-        btnNumEight = findViewById(R.id.eight);
-        btnNumEight.setOnClickListener(this);
-        btnNumNine = findViewById(R.id.nine);
-        btnNumNine.setOnClickListener(this);
-        btnSqrt = findViewById(R.id.root);
-        btnSqrt.setOnClickListener(this);
-
-        btnNumFour = findViewById(R.id.four);
-        btnNumFour.setOnClickListener(this);
-        btnNumFive = findViewById(R.id.five);
-        btnNumFive.setOnClickListener(this);
-        btnNumSix = findViewById(R.id.six);
-        btnNumSix.setOnClickListener(this);
-        btnSq = findViewById(R.id.square);
-        btnSq.setOnClickListener(this);
-
-        btnNumOne = findViewById(R.id.one);
-        btnNumOne.setOnClickListener(this);
-        btnNumTwo = findViewById(R.id.two);
-        btnNumTwo.setOnClickListener(this);
-        btnNumThree = findViewById(R.id.three);
-        btnNumThree.setOnClickListener(this);
-        btnEqual = findViewById(R.id.equals);
-        btnEqual.setOnClickListener(this);
-
-        btnComma = findViewById(R.id.comma);
-        btnComma.setOnClickListener(this);
-        btnZero = findViewById(R.id.zero);
-        btnZero.setOnClickListener(this);
-        btnPercent = findViewById(R.id.percent);
-        btnPercent.setOnClickListener(this);
-        btnCalc = findViewById(R.id.calc);
-        btnCalc.setOnClickListener(this);
+//        btnDivision = findViewById((R.id.division));
+//        btnDivision.setOnClickListener(this);
+//        btnMult = findViewById((R.id.multiply));
+//        btnMult.setOnClickListener(this);
+//        btnSubstr = findViewById(R.id.subtraction);
+//        btnSubstr.setOnClickListener(this);
+//        btnSum = findViewById(R.id.sum);
+//        btnSum.setOnClickListener(this);
+//
+//        btnNumSeven = findViewById(R.id.seven);
+//        btnNumSeven.setOnClickListener(this);
+//        btnNumEight = findViewById(R.id.eight);
+//        btnNumEight.setOnClickListener(this);
+//        btnNumNine = findViewById(R.id.nine);
+//        btnNumNine.setOnClickListener(this);
+//        btnSqrt = findViewById(R.id.root);
+//        btnSqrt.setOnClickListener(this);
+//
+//        btnNumFour = findViewById(R.id.four);
+//        btnNumFour.setOnClickListener(this);
+//        btnNumFive = findViewById(R.id.five);
+//        btnNumFive.setOnClickListener(this);
+//        btnNumSix = findViewById(R.id.six);
+//        btnNumSix.setOnClickListener(this);
+//        btnSq = findViewById(R.id.square);
+//        btnSq.setOnClickListener(this);
+//
+//        btnNumOne = findViewById(R.id.one);
+//        btnNumOne.setOnClickListener(this);
+//        btnNumTwo = findViewById(R.id.two);
+//        btnNumTwo.setOnClickListener(this);
+//        btnNumThree = findViewById(R.id.three);
+//        btnNumThree.setOnClickListener(this);
+//        btnEqual = findViewById(R.id.equals);
+//        btnEqual.setOnClickListener(this);
+//
+//        btnDot = findViewById(R.id.dot);
+//        btnDot.setOnClickListener(this);
+//        btnZero = findViewById(R.id.zero);
+//        btnZero.setOnClickListener(this);
+//        btnPercent = findViewById(R.id.percent);
+//        btnPercent.setOnClickListener(this);
+//        btnCalc = findViewById(R.id.calc);
+//        btnCalc.setOnClickListener(this);
 
     }
 
-    @Override
-    public void onClick(View v) {
+    public void clickDigit(View v) {
+        if (isNewNumber) {
+            calcView.setText("");
+        }
+        isNewNumber = false;
         String number = calcView.getText().toString();
         if (v.getId() == R.id.one) {
             number += "1";
@@ -115,6 +121,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             number += "9";
         } else if (v.getId() == R.id.zero) {
             number += "0";
+        } else if (v.getId() == R.id.dot) {
+            number += ".";
         }
         calcView.setText(number);
     }
