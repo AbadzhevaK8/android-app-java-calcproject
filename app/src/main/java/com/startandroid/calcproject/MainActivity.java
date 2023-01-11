@@ -39,7 +39,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button btnCalc;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -95,13 +95,27 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         String number = calcView.getText().toString();
-        switch (v.getId()) {
-            case R.id.btnNumOne: number = number + "1";
-            break;
+        if (v.getId() == R.id.one) {
+            number += "1";
+        } else if (v.getId() == R.id.two) {
+            number += "2";
+        } else if (v.getId() == R.id.three) {
+            number += "3";
+        } else if (v.getId() == R.id.four) {
+            number += "4";
+        } else if (v.getId() == R.id.five) {
+            number += "5";
+        } else if (v.getId() == R.id.six) {
+            number += "6";
+        } else if (v.getId() == R.id.seven) {
+            number += "7";
+        } else if (v.getId() == R.id.eight) {
+            number += "8";
+        } else if (v.getId() == R.id.nine) {
+            number += "9";
+        } else if (v.getId() == R.id.zero) {
+            number += "0";
         }
-
-        if (v.getId() == R.id.btnNumOne) {
-            number = number + "1";
-        }
+        calcView.setText(number);
     }
 }
