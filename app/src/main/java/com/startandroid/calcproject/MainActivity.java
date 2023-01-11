@@ -9,37 +9,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView calcView;
     Boolean isNewNumber = true;
+    String expression; // TODO add beautiful expression
+    String number;
     String firstOperand;
+    String secondOperand;
     String operator;
+    Double result = 0.0;
 
-//    Button btnDivision;
-//    Button btnMult;
-//    Button btnSubstr;
-//    Button btnSum;
-//
-//    Button btnNumSeven;
-//    Button btnNumEight;
-//    Button btnNumNine;
-//    Button btnSqrt;
-//
-//    Button btnNumFour;
-//    Button btnNumFive;
-//    Button btnNumSix;
-//    Button btnSq;
-//
-//    Button btnNumOne;
-//    Button btnNumTwo;
-//    Button btnNumThree;
-//    Button btnEqual;
-//
-//    Button btnDot;
-//    Button btnZero;
-//    Button btnPercent;
-//    Button btnCalc;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,51 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         calcView = findViewById(R.id.calcView);
 
-//        btnDivision = findViewById((R.id.division));
-//        btnDivision.setOnClickListener(this);
-//        btnMult = findViewById((R.id.multiply));
-//        btnMult.setOnClickListener(this);
-//        btnSubstr = findViewById(R.id.subtraction);
-//        btnSubstr.setOnClickListener(this);
-//        btnSum = findViewById(R.id.sum);
-//        btnSum.setOnClickListener(this);
-//
-//        btnNumSeven = findViewById(R.id.seven);
-//        btnNumSeven.setOnClickListener(this);
-//        btnNumEight = findViewById(R.id.eight);
-//        btnNumEight.setOnClickListener(this);
-//        btnNumNine = findViewById(R.id.nine);
-//        btnNumNine.setOnClickListener(this);
-//        btnSqrt = findViewById(R.id.root);
-//        btnSqrt.setOnClickListener(this);
-//
-//        btnNumFour = findViewById(R.id.four);
-//        btnNumFour.setOnClickListener(this);
-//        btnNumFive = findViewById(R.id.five);
-//        btnNumFive.setOnClickListener(this);
-//        btnNumSix = findViewById(R.id.six);
-//        btnNumSix.setOnClickListener(this);
-//        btnSq = findViewById(R.id.square);
-//        btnSq.setOnClickListener(this);
-//
-//        btnNumOne = findViewById(R.id.one);
-//        btnNumOne.setOnClickListener(this);
-//        btnNumTwo = findViewById(R.id.two);
-//        btnNumTwo.setOnClickListener(this);
-//        btnNumThree = findViewById(R.id.three);
-//        btnNumThree.setOnClickListener(this);
-//        btnEqual = findViewById(R.id.equals);
-//        btnEqual.setOnClickListener(this);
-//
-//        btnDot = findViewById(R.id.dot);
-//        btnDot.setOnClickListener(this);
-//        btnZero = findViewById(R.id.zero);
-//        btnZero.setOnClickListener(this);
-//        btnPercent = findViewById(R.id.percent);
-//        btnPercent.setOnClickListener(this);
-//        btnCalc = findViewById(R.id.calc);
-//        btnCalc.setOnClickListener(this);
-
     }
 
     public void clickDigit(View v) {
@@ -100,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
             calcView.setText("");
         }
         isNewNumber = false;
-        String number = calcView.getText().toString();
+
+        number = calcView.getText().toString();
+
         if (v.getId() == R.id.one) {
             number += "1";
         } else if (v.getId() == R.id.two) {
@@ -125,5 +64,41 @@ public class MainActivity extends AppCompatActivity {
             number += ".";
         }
         calcView.setText(number);
+    }
+
+    public void clickOperator(View v) {
+        isNewNumber = true;
+        firstOperand = calcView.getText().toString();
+
+        if (v.getId() == R.id.division) {
+            operator = "/";
+        } else if (v.getId() == R.id.multiply) {
+            operator = "*";
+        } else if (v.getId() == R.id.subtraction) {
+            operator = "-";
+        } else if (v.getId() == R.id.sum) {
+            operator = "+";
+        }
+    }
+
+    public void clickEquals(View v) {
+        secondOperand = calcView.getText().toString();
+
+        if (Objects.equals(operator, "/")) {
+            result = Double.parseDouble(firstOperand) / Double.parseDouble(secondOperand);
+        } else if (Objects.equals(operator, "*")) {
+            result = Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand);
+        } else if (Objects.equals(operator, "-")) {
+            result = Double.parseDouble(firstOperand) - Double.parseDouble(secondOperand);
+        } else if (Objects.equals(operator, "+")) {
+            result = Double.parseDouble(firstOperand) + Double.parseDouble(secondOperand);
+        }
+
+        calcView.setText(result+"");
+    }
+
+    public void clickCalc(View v) {
+        calcView.setText("0");
+        isNewNumber = true;
     }
 }

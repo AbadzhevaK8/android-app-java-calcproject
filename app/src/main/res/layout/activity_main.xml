@@ -24,7 +24,7 @@
             android:text="History" />
 
         <View
-            android:id="@+id/divider"
+            android:id="@+id/dividerLine1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_margin="5dp"
@@ -40,7 +40,7 @@
             android:text="0" />
 
         <View
-            android:id="@+id/divider2"
+            android:id="@+id/dividerLine2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_margin="5dp"
@@ -62,6 +62,7 @@
 
             <Button
                 android:id="@+id/division"
+                android:onClick="clickOperator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -71,6 +72,7 @@
 
             <Button
                 android:id="@+id/multiply"
+                android:onClick="clickOperator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -80,6 +82,7 @@
 
             <Button
                 android:id="@+id/subtraction"
+                android:onClick="clickOperator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -89,6 +92,7 @@
 
             <Button
                 android:id="@+id/sum"
+                android:onClick="clickOperator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -138,6 +142,7 @@
 
             <Button
                 android:id="@+id/root"
+                android:onClick="clickOperator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -187,6 +192,7 @@
 
             <Button
                 android:id="@+id/square"
+                android:onClick="clickOperator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -235,6 +241,7 @@
 
             <Button
                 android:id="@+id/equals"
+                android:onClick="clickEquals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -272,6 +279,7 @@
 
             <Button
                 android:id="@+id/percent"
+                android:onClick="clickOperator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -281,6 +289,7 @@
 
             <Button
                 android:id="@+id/calc"
+                android:onClick="clickCalc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
