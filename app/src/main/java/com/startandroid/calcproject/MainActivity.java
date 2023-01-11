@@ -14,8 +14,10 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     TextView calcView;
+    TextView historyView;
     Boolean isNewNumber = true;
-    String expression; // TODO add beautiful expression
+    Boolean isNewExpression = true;
+    String expression = ""; // TODO add beautiful expression
     String number;
     String firstOperand;
     String secondOperand;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         calcView = findViewById(R.id.calcView);
+        historyView = findViewById(R.id.historyView);
 
     }
 
@@ -64,11 +67,13 @@ public class MainActivity extends AppCompatActivity {
             number += ".";
         }
         calcView.setText(number);
+
     }
 
     public void clickOperator(View v) {
         isNewNumber = true;
         firstOperand = calcView.getText().toString();
+        expression += firstOperand;
 
         if (v.getId() == R.id.division) {
             operator = "/";
@@ -79,10 +84,12 @@ public class MainActivity extends AppCompatActivity {
         } else if (v.getId() == R.id.sum) {
             operator = "+";
         }
+        expression = expression + " " + operator + " ";
     }
 
     public void clickEquals(View v) {
         secondOperand = calcView.getText().toString();
+        expression += secondOperand;
 
         if (Objects.equals(operator, "/")) {
             result = Double.parseDouble(firstOperand) / Double.parseDouble(secondOperand);
@@ -95,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         calcView.setText(result+"");
+        historyView.setText(expression + " = " + result + "");
+        expression = "";
     }
 
     public void clickCalc(View v) {
