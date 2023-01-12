@@ -16,8 +16,7 @@ public class MainActivity extends AppCompatActivity {
     TextView calcView;
     TextView historyView;
     Boolean isNewNumber = true;
-    Boolean isNewExpression = true;
-    String expression = ""; // TODO add beautiful expression
+    String expression = "";
     String number;
     String firstOperand;
     String secondOperand;
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             number += "9";
         } else if (v.getId() == R.id.zero) {
             number += "0";
-        } else if (v.getId() == R.id.dot) {
+        } else if ((v.getId() == R.id.dot) && (!number.contains("."))) {
             number += ".";
         }
         calcView.setText(number);
@@ -102,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         calcView.setText(result+"");
+//        expression = expression + " = " + result + "\n";
+//        historyView.setText(expression);
         historyView.setText(expression + " = " + result + "");
         expression = "";
     }
