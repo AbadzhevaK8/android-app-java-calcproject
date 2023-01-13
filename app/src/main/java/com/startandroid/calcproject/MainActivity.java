@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     String firstOperand;
     String secondOperand;
     String operator = "";
-    Double result = 0.0;
+    BigDecimal result = BigDecimal.valueOf(0.0);
 
 
     @Override
@@ -98,19 +99,19 @@ public class MainActivity extends AppCompatActivity {
         expression += secondOperand;
 
         if (Objects.equals(operator, "/")) {
-            result = Double.parseDouble(firstOperand) / Double.parseDouble(secondOperand);
+            result = BigDecimal.valueOf(Long.parseLong(firstOperand)).divide(BigDecimal.valueOf(Long.parseLong(secondOperand)));
         } else if (Objects.equals(operator, "*")) {
-            result = Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand);
+            result = BigDecimal.valueOf(Long.parseLong(firstOperand)).multiply(BigDecimal.valueOf(Long.parseLong(secondOperand)));
         } else if (Objects.equals(operator, "-")) {
-            result = Double.parseDouble(firstOperand) - Double.parseDouble(secondOperand);
+            result = BigDecimal.valueOf(Long.parseLong(firstOperand)).subtract(BigDecimal.valueOf(Long.parseLong(secondOperand)));
         } else if (Objects.equals(operator, "+")) {
-            result = Double.parseDouble(firstOperand) + Double.parseDouble(secondOperand);
+            result = BigDecimal.valueOf(Long.parseLong(firstOperand)).add(BigDecimal.valueOf(Long.parseLong(secondOperand)));
         }
 
 
 //        expression = expression + " = " + result + "\n";
 //        historyView.setText(expression);
-        if (Double.isInfinite(result)) {
+        if (result == null) {
             historyView.setText("You can't divide by zero.");
             calcView.setText("We are sorry.");
         } else {
@@ -130,20 +131,30 @@ public class MainActivity extends AppCompatActivity {
     public void clickPercent(View v) {
         if (Objects.equals(operator, "")) {
             number = calcView.getText().toString();
-            Double resPercent = Double.parseDouble(number) / 100;
+            BigDecimal resPercent = BigDecimal.valueOf(Long.parseLong(number)).divide(BigDecimal.valueOf(100));
             number = resPercent + "";
             calcView.setText(number);
 //            historyView.setText(number);
         } else {
             secondOperand = calcView.getText().toString();
             if (Objects.equals(operator, "/")) {
-                result = Double.parseDouble(firstOperand) / Double.parseDouble(secondOperand) * 100;
+                result = BigDecimal.valueOf(Long.parseLong(firstOperand))
+                        .divide(BigDecimal.valueOf(Long.parseLong(secondOperand)))
+                        .multiply(BigDecimal.valueOf(100));
             } else if (Objects.equals(operator, "*")) {
-                result = Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand) / 100;
+                result = BigDecimal.valueOf(Long.parseLong(firstOperand))
+                        .multiply(BigDecimal.valueOf(Long.parseLong(secondOperand)))
+                        .divide(BigDecimal.valueOf(100));
             } else if (Objects.equals(operator, "-")) {
-                result = Double.parseDouble(firstOperand) - (Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand) / 100);
+                result = BigDecimal.valueOf(Long.parseLong(firstOperand))
+                        .subtract((BigDecimal.valueOf(Long.parseLong(firstOperand))))
+                        .multiply(BigDecimal.valueOf(Long.parseLong(secondOperand)))
+                        .divide(BigDecimal.valueOf(100));
             } else if (Objects.equals(operator, "+")) {
-                result = Double.parseDouble(firstOperand) + (Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand) / 100);
+                result = BigDecimal.valueOf(Long.parseLong(firstOperand))
+                        .add(BigDecimal.valueOf(Long.parseLong(firstOperand)))
+                        .multiply(BigDecimal.valueOf(Long.parseLong(secondOperand)))
+                        .divide(BigDecimal.valueOf(100));
             }
             calcView.setText(result + "");
             operator = "";
