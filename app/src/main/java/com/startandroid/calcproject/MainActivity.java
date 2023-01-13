@@ -2,11 +2,8 @@ package com.startandroid.calcproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Objects;
@@ -73,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 number += ".";
             }
         }
-        if (number.startsWith("0") && (!number.startsWith("0.")) && (!Objects.equals(number, "0"))) {
+        if (number.startsWith("0") && (!number.startsWith("0.")) && (!Objects.equals(number, "0"))) { // clean first zero
             number = number.substring(1);
         }
         calcView.setText(number);
@@ -110,10 +107,16 @@ public class MainActivity extends AppCompatActivity {
             result = Double.parseDouble(firstOperand) + Double.parseDouble(secondOperand);
         }
 
-        calcView.setText(result+"");
+
 //        expression = expression + " = " + result + "\n";
 //        historyView.setText(expression);
-        historyView.setText(expression + " = " + result + "");
+        if (Double.isInfinite(result)) {
+            historyView.setText("You can't divide by zero.");
+            calcView.setText("We are sorry.");
+        } else {
+            historyView.setText(expression + " = " + result + "");
+            calcView.setText(result+"");
+        }
         expression = "";
         operator = "";
         isNewNumber = true;
@@ -124,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         isNewNumber = true;
     }
 
-    public void clickPercent(View view) {
+    public void clickPercent(View v) {
         if (Objects.equals(operator, "")) {
             number = calcView.getText().toString();
             Double resPercent = Double.parseDouble(number) / 100;
@@ -145,5 +148,20 @@ public class MainActivity extends AppCompatActivity {
             calcView.setText(result + "");
             operator = "";
         }
+    }
+
+
+    public void clickSqrt(View v) {
+        number = calcView.getText().toString();
+        Double resSqrt = Math.sqrt(Double.parseDouble(number));
+        number = resSqrt + "";
+        calcView.setText(number);
+    }
+
+    public void clickSquare(View v) {
+        number = calcView.getText().toString();
+        Double resSqare = Double.parseDouble(number) * Double.parseDouble(number);
+        number = resSqare + "";
+        calcView.setText(number);
     }
 }
