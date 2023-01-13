@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
             calcView.setText(result + "");
             operator = "";
         }
+        isNewNumber = true;
     }
 
 
@@ -156,12 +157,14 @@ public class MainActivity extends AppCompatActivity {
         Double resSqrt = Math.sqrt(Double.parseDouble(number));
         number = resSqrt + "";
         calcView.setText(number);
+        isNewNumber = true;
     }
 
     public void clickSquare(View v) {
         number = calcView.getText().toString();
-        Double resSqare = Double.parseDouble(number) * Double.parseDouble(number);
-        number = resSqare + "";
+        Double resSquare = Double.parseDouble(number) * Double.parseDouble(number);
+        number = resSquare + "";
         calcView.setText(number);
+        isNewNumber = true;
     }
 }
