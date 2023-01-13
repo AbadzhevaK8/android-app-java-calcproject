@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         expression += secondOperand;
 
         if (Objects.equals(operator, "/")) {
-            result = BigDecimal.valueOf(Long.parseLong(firstOperand)).divide(BigDecimal.valueOf(Long.parseLong(secondOperand)));
+            result = BigDecimal.valueOf(Long.parseLong(firstOperand)).divide(BigDecimal.valueOf(Long.parseLong(secondOperand)), 4, RoundingMode.DOWN);
         } else if (Objects.equals(operator, "*")) {
             result = BigDecimal.valueOf(Long.parseLong(firstOperand)).multiply(BigDecimal.valueOf(Long.parseLong(secondOperand)));
         } else if (Objects.equals(operator, "-")) {
@@ -112,11 +113,11 @@ public class MainActivity extends AppCompatActivity {
 //        expression = expression + " = " + result + "\n";
 //        historyView.setText(expression);
         if (result == null) {
-            historyView.setText("You can't divide by zero.");
-            calcView.setText("We are sorry.");
+            historyView.setText(R.string.divideByZero);
+            calcView.setText(R.string.divideByZeroSorry);
         } else {
-            historyView.setText(expression + " = " + result + "");
-            calcView.setText(result+"");
+            historyView.setText(String.format("%s = %s", expression, result));
+            calcView.setText(String.format("%s", result));
         }
         expression = "";
         operator = "";
@@ -131,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickPercent(View v) {
         if (Objects.equals(operator, "")) {
             number = calcView.getText().toString();
-            BigDecimal resPercent = BigDecimal.valueOf(Long.parseLong(number)).divide(BigDecimal.valueOf(100));
+            BigDecimal resPercent = BigDecimal.valueOf(Long.parseLong(number)).divide(BigDecimal.valueOf(100), 4, RoundingMode.DOWN);
             number = resPercent + "";
             calcView.setText(number);
 //            historyView.setText(number);
@@ -139,24 +140,24 @@ public class MainActivity extends AppCompatActivity {
             secondOperand = calcView.getText().toString();
             if (Objects.equals(operator, "/")) {
                 result = BigDecimal.valueOf(Long.parseLong(firstOperand))
-                        .divide(BigDecimal.valueOf(Long.parseLong(secondOperand)))
+                        .divide(BigDecimal.valueOf(Long.parseLong(secondOperand)), 4, RoundingMode.DOWN)
                         .multiply(BigDecimal.valueOf(100));
             } else if (Objects.equals(operator, "*")) {
                 result = BigDecimal.valueOf(Long.parseLong(firstOperand))
                         .multiply(BigDecimal.valueOf(Long.parseLong(secondOperand)))
-                        .divide(BigDecimal.valueOf(100));
+                        .divide(BigDecimal.valueOf(100), 4, RoundingMode.DOWN);
             } else if (Objects.equals(operator, "-")) {
                 result = BigDecimal.valueOf(Long.parseLong(firstOperand))
                         .subtract((BigDecimal.valueOf(Long.parseLong(firstOperand))))
                         .multiply(BigDecimal.valueOf(Long.parseLong(secondOperand)))
-                        .divide(BigDecimal.valueOf(100));
+                        .divide(BigDecimal.valueOf(100), 4, RoundingMode.DOWN);
             } else if (Objects.equals(operator, "+")) {
                 result = BigDecimal.valueOf(Long.parseLong(firstOperand))
                         .add(BigDecimal.valueOf(Long.parseLong(firstOperand)))
                         .multiply(BigDecimal.valueOf(Long.parseLong(secondOperand)))
-                        .divide(BigDecimal.valueOf(100));
+                        .divide(BigDecimal.valueOf(100), 4, RoundingMode.DOWN);
             }
-            calcView.setText(result + "");
+            calcView.setText(String.format("%s", result));
             operator = "";
         }
         isNewNumber = true;
