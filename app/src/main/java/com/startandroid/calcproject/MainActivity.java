@@ -60,8 +60,12 @@ public class MainActivity extends AppCompatActivity {
             number += "8";
         } else if (v.getId() == R.id.nine) {
             number += "9";
-        } else if ((v.getId() == R.id.zero) && (!Objects.equals(number, "0"))) {
-            number += "0";
+        } else if (v.getId() == R.id.zero)  {
+            if (!Objects.equals(number, "0")) {
+                number += "0";
+            } else if (Objects.equals(number, "")) {
+                number += "0";
+            }
         } else if ((v.getId() == R.id.dot) && (!number.contains("."))) {
             if (Objects.equals(number, "")) {
                 number = "0.";
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 number += ".";
             }
         }
-        if (number.startsWith("0") && (!number.startsWith("0."))) {
+        if (number.startsWith("0") && (!number.startsWith("0.")) && (!Objects.equals(number, "0"))) {
             number = number.substring(1);
         }
         calcView.setText(number);
@@ -112,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         historyView.setText(expression + " = " + result + "");
         expression = "";
         operator = "";
+        isNewNumber = true;
     }
 
     public void clickCalc(View v) {
