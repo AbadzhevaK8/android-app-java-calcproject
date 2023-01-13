@@ -279,7 +279,7 @@
 
             <Button
                 android:id="@+id/percent"
-                android:onClick="clickOperator"
+                android:onClick="clickPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     String number;
     String firstOperand;
     String secondOperand;
-    String operator;
+    String operator = "";
     Double result = 0.0;
 
 
@@ -60,13 +60,21 @@ public class MainActivity extends AppCompatActivity {
             number += "8";
         } else if (v.getId() == R.id.nine) {
             number += "9";
-        } else if (v.getId() == R.id.zero) {
+        } else if ((v.getId() == R.id.zero) && (!Objects.equals(number, "0"))) {
             number += "0";
+//            calcView.setText(number);
         } else if ((v.getId() == R.id.dot) && (!number.contains("."))) {
-            number += ".";
+            if (Objects.equals(number, "0")) {
+                number = "0.";
+//                calcView.setText(number);
+            } else {
+                number += ".";
+            }
         }
+//        if (number.startsWith("0")) {
+//            number = number.substring(1);
+//        }
         calcView.setText(number);
-
     }
 
     public void clickOperator(View v) {
@@ -105,10 +113,34 @@ public class MainActivity extends AppCompatActivity {
 //        historyView.setText(expression);
         historyView.setText(expression + " = " + result + "");
         expression = "";
+        operator = "";
     }
 
     public void clickCalc(View v) {
         calcView.setText("0");
         isNewNumber = true;
+    }
+
+    public void clickPercent(View view) {
+        if (Objects.equals(operator, "")) {
+            number = calcView.getText().toString();
+            Double resPercent = Double.parseDouble(number) / 100;
+            number = resPercent + "";
+            calcView.setText(number);
+//            historyView.setText(number);
+        } else {
+            secondOperand = calcView.getText().toString();
+            if (Objects.equals(operator, "/")) {
+                result = Double.parseDouble(firstOperand) / Double.parseDouble(secondOperand) * 100;
+            } else if (Objects.equals(operator, "*")) {
+                result = Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand) / 100;
+            } else if (Objects.equals(operator, "-")) {
+                result = Double.parseDouble(firstOperand) - (Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand) / 100);
+            } else if (Objects.equals(operator, "+")) {
+                result = Double.parseDouble(firstOperand) + (Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand) / 100);
+            }
+            calcView.setText(result + "");
+            operator = "";
+        }
     }
 }
