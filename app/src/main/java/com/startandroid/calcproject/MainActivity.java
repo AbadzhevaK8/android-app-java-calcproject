@@ -111,11 +111,11 @@ public class MainActivity extends AppCompatActivity {
 //        expression = expression + " = " + result + "\n";
 //        historyView.setText(expression);
         if (Double.isInfinite(result)) {
-            historyView.setText("You can't divide by zero.");
-            calcView.setText("We are sorry.");
+            historyView.setText(R.string.divideByZero);
+            calcView.setText(R.string.divideByZeroSorry);
         } else {
-            historyView.setText(expression + " = " + result + "");
-            calcView.setText(result+"");
+            historyView.setText(String.format("%s = %s", expression, result));
+            calcView.setText(String.format("%s", result));
         }
         expression = "";
         operator = "";
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (Objects.equals(operator, "+")) {
                 result = Double.parseDouble(firstOperand) + (Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand) / 100);
             }
-            calcView.setText(result + "");
+            calcView.setText(String.format("%s", result));
             operator = "";
         }
         isNewNumber = true;
