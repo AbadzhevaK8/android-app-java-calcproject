@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     TextView historyView;
     Boolean isNewNumber = true;
     String expression = "";
-    String number;
+    String number = "0";
     String firstOperand;
     String secondOperand;
     String operator = "";
@@ -62,18 +62,16 @@ public class MainActivity extends AppCompatActivity {
             number += "9";
         } else if ((v.getId() == R.id.zero) && (!Objects.equals(number, "0"))) {
             number += "0";
-//            calcView.setText(number);
         } else if ((v.getId() == R.id.dot) && (!number.contains("."))) {
-            if (Objects.equals(number, "0")) {
+            if (Objects.equals(number, "")) {
                 number = "0.";
-//                calcView.setText(number);
             } else {
                 number += ".";
             }
         }
-//        if (number.startsWith("0")) {
-//            number = number.substring(1);
-//        }
+        if (number.startsWith("0") && (!number.startsWith("0."))) {
+            number = number.substring(1);
+        }
         calcView.setText(number);
     }
 
