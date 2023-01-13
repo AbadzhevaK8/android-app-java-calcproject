@@ -100,13 +100,17 @@ public class MainActivity extends AppCompatActivity {
         expression += secondOperand;
 
         if (Objects.equals(operator, "/")) {
-            result = BigDecimal.valueOf(Long.parseLong(firstOperand)).divide(BigDecimal.valueOf(Long.parseLong(secondOperand)), 4, RoundingMode.DOWN);
+            result = BigDecimal.valueOf(Long.parseLong(firstOperand))
+                    .divide(BigDecimal.valueOf(Long.parseLong(secondOperand)), 4, RoundingMode.DOWN);
         } else if (Objects.equals(operator, "*")) {
-            result = BigDecimal.valueOf(Long.parseLong(firstOperand)).multiply(BigDecimal.valueOf(Long.parseLong(secondOperand)));
+            result = BigDecimal.valueOf(Long.parseLong(firstOperand))
+                    .multiply(BigDecimal.valueOf(Long.parseLong(secondOperand)));
         } else if (Objects.equals(operator, "-")) {
-            result = BigDecimal.valueOf(Long.parseLong(firstOperand)).subtract(BigDecimal.valueOf(Long.parseLong(secondOperand)));
+            result = BigDecimal.valueOf(Long.parseLong(firstOperand))
+                    .subtract(BigDecimal.valueOf(Long.parseLong(secondOperand)));
         } else if (Objects.equals(operator, "+")) {
-            result = BigDecimal.valueOf(Long.parseLong(firstOperand)).add(BigDecimal.valueOf(Long.parseLong(secondOperand)));
+            result = BigDecimal.valueOf(Long.parseLong(firstOperand))
+                    .add(BigDecimal.valueOf(Long.parseLong(secondOperand)));
         }
 
 
