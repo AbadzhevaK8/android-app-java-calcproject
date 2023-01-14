@@ -7,6 +7,8 @@
     android:background="@color/teal_mild"
     tools:context=".MainActivity">
 
+<!-- The history and result block starts.-->
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -47,6 +49,8 @@
             android:background="?android:attr/listDivider" />
 
     </LinearLayout>
+
+<!--    The block of buttons starts.-->
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -289,7 +293,7 @@
 
             <Button
                 android:id="@+id/calc"
-                android:onClick="clickCalc"
+                android:onClick="clickClear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
