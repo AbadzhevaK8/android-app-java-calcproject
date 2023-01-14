@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         calcView.setText(number);
     }
 
-    public void clickOperator(View v) {
+    public void clickOperator(View v) {  // read operator to variable.
         mediaPlayer.start();
         isNewNumber = true;
         firstOperand = calcView.getText().toString();
@@ -117,9 +117,7 @@ public class MainActivity extends AppCompatActivity {
             result = Double.parseDouble(firstOperand) + Double.parseDouble(secondOperand);
         }
 
-
-
-        if (Double.isInfinite(result)) {
+        if (Double.isInfinite(result)) {  // checking divide by zero.
             historyView.setText(R.string.divideByZero);
             calcView.setText(R.string.divideByZeroSorry);
         } else {
@@ -140,15 +138,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickPercent(View v) {
         mediaPlayer.start();
-        if (Objects.equals(operator, "")) {
+        if (Objects.equals(operator, "")) {                    // for one number
             number = calcView.getText().toString();
             result = Double.parseDouble(number) / 100;
-            calcView.setText(result + "");
+            calcView.setText(String.format("%s", result));
 
             expression = expression + number + "% = " + result + "";
-            historyView.setText(expression);
-            expression += "\n";
-        } else {
+        } else {                                                  // for expression with percents.
             secondOperand = calcView.getText().toString();
             if (Objects.equals(operator, "/")) {
                 result = Double.parseDouble(firstOperand) / Double.parseDouble(secondOperand) * 100;
@@ -163,9 +159,9 @@ public class MainActivity extends AppCompatActivity {
             operator = "";
 
             expression = expression + operator + secondOperand + "% = " + result + "";
-            historyView.setText(expression);
-            expression += "\n";
         }
+        historyView.setText(expression);
+        expression += "\n";
         isNewNumber = true;
     }
 
