@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Objects;
 
@@ -118,8 +119,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (Double.isInfinite(result)) {  // checking divide by zero.
-            historyView.setText(R.string.divideByZero);
-            calcView.setText(R.string.divideByZeroSorry);
+            Toast.makeText(MainActivity.this, R.string.divideByZero, Toast.LENGTH_SHORT).show();
         } else {
             expression = expression + " = " + resToStr(result);
             historyView.setText(expression);
