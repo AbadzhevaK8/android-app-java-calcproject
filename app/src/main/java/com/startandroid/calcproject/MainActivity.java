@@ -121,9 +121,9 @@ public class MainActivity extends AppCompatActivity {
             historyView.setText(R.string.divideByZero);
             calcView.setText(R.string.divideByZeroSorry);
         } else {
-            expression = expression + " = " + result + "";
+            expression = expression + " = " + resToStr(result);
             historyView.setText(expression);
-            calcView.setText(String.format("%s", result));
+            calcView.setText(resToStr(result));
         }
         expression += "\n";
         operator = "";
@@ -141,9 +141,9 @@ public class MainActivity extends AppCompatActivity {
         if (Objects.equals(operator, "")) {                    // for one number
             number = calcView.getText().toString();
             result = Double.parseDouble(number) / 100;
-            calcView.setText(String.format("%s", result));
+            calcView.setText(resToStr(result));
 
-            expression = expression + number + "% = " + result + "";
+            expression = expression + number + "% = " + resToStr(result);
         } else {                                                  // for expression with percents.
             secondOperand = calcView.getText().toString();
             if (Objects.equals(operator, "/")) {
@@ -155,10 +155,10 @@ public class MainActivity extends AppCompatActivity {
             } else if (Objects.equals(operator, "+")) {
                 result = Double.parseDouble(firstOperand) + (Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand) / 100);
             }
-            calcView.setText(String.format("%s", result));
+            calcView.setText(resToStr(result));
             operator = "";
 
-            expression = expression + operator + secondOperand + "% = " + result + "";
+            expression = expression + operator + secondOperand + "% = " + resToStr(result);
         }
         historyView.setText(expression);
         expression += "\n";
@@ -170,10 +170,10 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.start();
         number = calcView.getText().toString();
         result = Math.sqrt(Double.parseDouble(number));
-        calcView.setText(String.format("%s", result));
+        calcView.setText(resToStr(result));
         isNewNumber = true;
 
-        expression = expression + "√" + number + " = " + result + "";
+        expression = expression + "√" + number + " = " + resToStr(result);
         historyView.setText(expression);
         expression += "\n";
     }
@@ -182,11 +182,19 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.start();
         number = calcView.getText().toString();
         result = Double.parseDouble(number) * Double.parseDouble(number);
-        calcView.setText(String.format("%s", result));
+        calcView.setText(resToStr(result));
         isNewNumber = true;
 
-        expression = expression + number + "\u00B2" + " = " + result + "";
+        expression = expression + number + "\u00B2" + " = " + resToStr(result);
         historyView.setText(expression);
         expression += "\n";
+    }
+
+    public String resToStr(Double result)  {
+        if (result % 1 == 0) {
+            return Integer.toString(result.intValue());
+        } else {
+            return result.toString();
+        }
     }
 }
