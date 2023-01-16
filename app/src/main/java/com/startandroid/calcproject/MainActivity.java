@@ -1,5 +1,7 @@
 package com.startandroid.calcproject;
 
+import static java.math.RoundingMode.HALF_UP;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.RoundingMode;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -194,7 +197,9 @@ public class MainActivity extends AppCompatActivity {
         if (result % 1 == 0) {
             return Integer.toString(result.intValue());
         } else {
-            return result.toString();
+            String s = String.format("%.12f", result);
+            s = s.replaceAll("\\.(.*?)0+$", ".$1");
+            return s;
         }
     }
 }

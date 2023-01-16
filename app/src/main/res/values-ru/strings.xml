@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Калькулятор</string>
+    <string name="divideByZero">Вы не можете делить на ноль.</string>
+</resources>
