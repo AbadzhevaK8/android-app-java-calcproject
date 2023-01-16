@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -197,7 +198,8 @@ public class MainActivity extends AppCompatActivity {
         if (result % 1 == 0) {
             return Integer.toString(result.intValue());
         } else {
-            String s = String.format("%.12f", result);
+            DecimalFormat decimalFormat = new DecimalFormat( "#.############" );
+            String s = decimalFormat.format(result);
             s = s.replaceAll("\\.(.*?)0+$", ".$1");
             return s;
         }

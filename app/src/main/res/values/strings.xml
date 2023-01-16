@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">calcproject</string>
+    <string name="app_name">Calculator</string>
     <string name="divideByZero">You can\'t divide by zero.</string>
 </resources>
