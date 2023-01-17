@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
 
     public String resToStr(Double result)  {
         if (result % 1 == 0) {
-            return Integer.toString(result.intValue());
+            return Long.toString((long) result.doubleValue());
         } else {
             DecimalFormat decimalFormat = new DecimalFormat( "#.############" );
             String s = decimalFormat.format(result);
