@@ -16,39 +16,23 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2">
 
-        <TextView
-            android:id="@+id/historyView"
-            android:textSize="30sp"
-            android:lines="7"
-            android:gravity="bottom"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_history"
+            android:name="com.startandroid.calcproject.HistoryFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/gray"
-            android:layout_margin="5dp"
-            android:text="" />
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_history"/>
 
-        <View
-            android:id="@+id/dividerLine1"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="5dp"
-            android:background="?android:attr/listDivider" />
 
-        <TextView
-            android:id="@+id/calcView"
-            android:textSize="30sp"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_calculate"
+            android:name="com.startandroid.calcproject.CalculateFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/gray"
-            android:layout_margin="5dp"
-            android:text="0" />
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_calculate"/>
 
-        <View
-            android:id="@+id/dividerLine2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="5dp"
-            android:background="?android:attr/listDivider" />
 
     </LinearLayout>
 
@@ -61,249 +45,14 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <LinearLayout
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_keyboard"
+            android:name="com.startandroid.calcproject.KeyboardFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_keyboard"/>
 
-            <Button
-                android:id="@+id/division"
-                android:onClick="clickOperator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="/"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/multiply"
-                android:onClick="clickOperator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="*" />
-
-            <Button
-                android:id="@+id/subtraction"
-                android:onClick="clickOperator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="-" />
-
-            <Button
-                android:id="@+id/sum"
-                android:onClick="clickOperator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="+" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/seven"
-                android:onClick="clickDigit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_blue_dark"
-                android:text="7" />
-
-            <Button
-                android:id="@+id/eight"
-                android:onClick="clickDigit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_blue_dark"
-                android:text="8" />
-
-            <Button
-                android:id="@+id/nine"
-                android:onClick="clickDigit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_blue_dark"
-                android:text="9" />
-
-            <Button
-                android:id="@+id/root"
-                android:onClick="clickSqrt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="√" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/four"
-                android:onClick="clickDigit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_blue_dark"
-                android:text="4" />
-
-            <Button
-                android:id="@+id/five"
-                android:onClick="clickDigit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_blue_dark"
-                android:text="5" />
-
-            <Button
-                android:id="@+id/six"
-                android:onClick="clickDigit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_blue_dark"
-                android:text="6" />
-
-            <Button
-                android:id="@+id/square"
-                android:onClick="clickSquare"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="x&#178;" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/one"
-                android:onClick="clickDigit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_blue_dark"
-                android:text="1" />
-
-            <Button
-                android:id="@+id/two"
-                android:onClick="clickDigit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_blue_dark"
-                android:text="2" />
-
-            <Button
-                android:id="@+id/three"
-                android:onClick="clickDigit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_blue_dark"
-                android:text="3" />
-
-            <Button
-                android:id="@+id/equals"
-                android:onClick="clickEquals"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="=" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/dot"
-                android:onClick="clickDigit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="." />
-
-            <Button
-                android:id="@+id/zero"
-                android:onClick="clickDigit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_blue_dark"
-                android:text="0" />
-
-            <Button
-                android:id="@+id/percent"
-                android:onClick="clickPercent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="%"
-                android:textSize="30dp" />
-
-            <Button
-                android:id="@+id/calc"
-                android:onClick="clickClear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_green_dark"
-                android:text="C" />
-        </LinearLayout>
 
     </LinearLayout>
 
