@@ -11,43 +11,43 @@
 
         <Button
             android:id="@+id/division"
-            android:onClick="clickOperator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="/"
-            android:textSize="30sp" />
+            android:text="@string/division"
+            android:textSize="30sp"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/multiply"
-            android:onClick="clickOperator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="*" />
+            android:text="@string/mult"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/subtraction"
-            android:onClick="clickOperator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="-" />
+            android:text="@string/minus"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/sum"
-            android:onClick="clickOperator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="+" />
+            android:text="@string/plus"
+            style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>
 
@@ -58,46 +58,49 @@
 
         <Button
             android:id="@+id/seven"
-            android:onClick="clickDigit"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="7" />
+            android:text="@string/seven"
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/eight"
-            android:onClick="clickDigit"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="8" />
+            android:text="@string/eight"
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/nine"
-            android:onClick="clickDigit"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="9" />
+            android:text="@string/nine"
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/root"
-            android:onClick="clickSqrt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="√" />
+            android:text="@string/root"
+            style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>
 
@@ -108,46 +111,49 @@
 
         <Button
             android:id="@+id/four"
-            android:onClick="clickDigit"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="4" />
+            android:text="@string/four"
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/five"
-            android:onClick="clickDigit"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="5" />
+            android:text="@string/five"
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/six"
-            android:onClick="clickDigit"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="6" />
+            android:text="@string/six"
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/square"
-            android:onClick="clickSquare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="x&#178;" />
+            android:text="@string/sqr"
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
     <LinearLayout
@@ -157,46 +163,49 @@
 
         <Button
             android:id="@+id/one"
-            android:onClick="clickDigit"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="1" />
+            android:text="@string/one"
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/two"
-            android:onClick="clickDigit"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="2" />
+            android:text="@string/two"
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/three"
-            android:onClick="clickDigit"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="3" />
+            android:text="@string/three"
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/equals"
-            android:onClick="clickEquals"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="=" />
+            android:text="@string/equal"
+            style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>
 
@@ -207,44 +216,46 @@
 
         <Button
             android:id="@+id/dot"
-            android:onClick="clickDigit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="." />
+            android:text="@string/dot"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/zero"
-            android:onClick="clickDigit"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="0" />
+            android:text="@string/zero"
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/percent"
-            android:onClick="clickPercent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="%"
-            android:textSize="30dp" />
+            android:text="@string/percent"
+            android:textSize="30sp"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/calc"
-            android:onClick="clickClear"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_green_dark"
-            android:text="C" />
+            android:text="@string/c"
+            android:textColor="#4A148C"
+            android:textSize="30sp" />
     </LinearLayout>
 </LinearLayout>
