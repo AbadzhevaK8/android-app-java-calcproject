@@ -1,19 +1,19 @@
 package com.startandroid.calcproject;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
-public class KeyboardFragment extends Fragment implements View.OnClickListener{
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
+public class KeyboardFragment extends Fragment implements View.OnClickListener {
 
-
+    SharedViewModel viewModel;
+    MediaPlayer mediaPlayer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -21,6 +21,8 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener{
         View keyboardView = inflater.inflate(R.layout.fragment_keyboard,
                 container, false);
 
+        viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.sound_click);
         Button divisionBtn = keyboardView.findViewById(R.id.division);
         Button multiplyBtn = keyboardView.findViewById(R.id.multiply);
         Button subtractionBtn = keyboardView.findViewById(R.id.subtraction);
@@ -40,7 +42,7 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener{
         Button dotBtn = keyboardView.findViewById(R.id.dot);
         Button zeroBtn = keyboardView.findViewById(R.id.zero);
         Button percentBtn = keyboardView.findViewById(R.id.percent);
-        Button calcBtn = keyboardView.findViewById(R.id.calc);
+        Button calcBtn = keyboardView.findViewById(R.id.clear);
 
         divisionBtn.setOnClickListener(this);
         multiplyBtn.setOnClickListener(this);
@@ -68,7 +70,10 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
+        mediaPlayer.start();
+//        mediaPlayer.release();
         String buttonId = getResources().getResourceEntryName(view.getId());
-        Toast.makeText(getActivity(), buttonId, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(getActivity(), buttonId, Toast.LENGTH_SHORT).show();
+        viewModel.setDataToPass(buttonId);
     }
 }

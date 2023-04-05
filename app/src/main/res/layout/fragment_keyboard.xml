@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_mild"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -11,43 +13,47 @@
 
         <Button
             android:id="@+id/division"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/division"
-            android:textSize="30sp"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/multiply"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/mult"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/subtraction"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/minus"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/sum"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/plus"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
     </LinearLayout>
 
@@ -63,10 +69,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/seven"
             android:textColor="#4527A0"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:strokeColor="#4527A0"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/eight"
@@ -75,10 +82,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/eight"
             android:textColor="#4527A0"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:strokeColor="#4527A0"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/nine"
@@ -87,20 +95,22 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/nine"
             android:textColor="#4527A0"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:strokeColor="#4527A0"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/root"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/root"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
     </LinearLayout>
 
@@ -116,10 +126,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/four"
             android:textColor="#4527A0"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:strokeColor="#4527A0"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/five"
@@ -128,10 +139,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/five"
             android:textColor="#4527A0"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:strokeColor="#4527A0"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/six"
@@ -140,20 +152,22 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/six"
             android:textColor="#4527A0"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:strokeColor="#4527A0"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/square"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/sqr"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -168,10 +182,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/one"
             android:textColor="#4527A0"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:strokeColor="#4527A0"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/two"
@@ -180,10 +195,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/two"
             android:textColor="#4527A0"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:strokeColor="#4527A0"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/three"
@@ -192,20 +208,22 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/three"
             android:textColor="#4527A0"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:strokeColor="#4527A0"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/equals"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/equal"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="#4527A0"
+            android:textSize="30sp" />
 
     </LinearLayout>
 
@@ -216,13 +234,13 @@
 
         <Button
             android:id="@+id/dot"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/dot"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/zero"
@@ -231,31 +249,34 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/zero"
             android:textColor="#4527A0"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:strokeColor="#4527A0"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/percent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:text="@string/percent"
-            android:textSize="30sp"
-            style="?android:attr/buttonBarButtonStyle" />
-
-        <Button
-            android:id="@+id/calc"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_green_dark"
-            android:text="@string/c"
-            android:textColor="#4A148C"
+            android:text="@string/percent"
+            android:textColor="#4527A0"
             android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/clear"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/c"
+            android:textColor="#4527A0"
+            android:textSize="30sp"
+            app:strokeColor="#4527A0"
+            app:strokeWidth="1dp" />
     </LinearLayout>
 </LinearLayout>
