@@ -19,7 +19,7 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         View historyFragmentView = inflater.inflate(R.layout.fragment_history, container, false);
 
-        historyView = historyFragmentView.findViewById(R.id.historyView);
+        historyView = historyFragmentView.findViewById(R.id.recycler_view);
         return historyFragmentView;
     }
 }
