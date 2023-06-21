@@ -1,5 +1,6 @@
 package com.startandroid.calcproject;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -15,6 +17,8 @@ import java.text.DecimalFormat;
 import java.util.Objects;
 
 public class CalculateFragment extends Fragment {
+
+    private RecyclerViewUpdater mainActivity;
 
     private static final String TAG = "CalculateFragment";
 
@@ -154,10 +158,14 @@ public class CalculateFragment extends Fragment {
             Toast.makeText(getContext(), R.string.divideByZero, Toast.LENGTH_SHORT).show();
         } else {
             expression = expression + " = " + resToStr(result);
-//            historyView.setText(expression);
+
+            String valueToSend = expression;
+            Log.v(TAG, expression + " TODO");
+            updateHistoryRecyclerView(valueToSend);
+
             calcView.setText(resToStr(result));
         }
-        expression += "\n";
+        expression = "";
         operator = "";
         isNewNumber = true;
     }
@@ -190,21 +198,25 @@ public class CalculateFragment extends Fragment {
 
             expression = expression + operator + secondOperand + "% = " + resToStr(result);
         }
-//        historyView.setText(expression);
-        expression += "\n";
+
+        String valueToSend = expression;
+        Log.v(TAG, expression + " TODO");
+        updateHistoryRecyclerView(valueToSend);
+        expression = "";
         isNewNumber = true;
     }
 
     public void calculateSqrt() {
-//        mediaPlayer.start();
         number = calcView.getText().toString();
         result = Math.sqrt(Double.parseDouble(number));
         calcView.setText(resToStr(result));
         isNewNumber = true;
 
         expression = expression + "√" + number + " = " + resToStr(result);
-//        historyView.setText(expression);
-        expression += "\n";
+        String valueToSend = expression;
+        Log.v(TAG, expression + " TODO");
+        updateHistoryRecyclerView(valueToSend);
+        expression = "";
     }
 
     public void calculateSquare() {
@@ -214,8 +226,10 @@ public class CalculateFragment extends Fragment {
         isNewNumber = true;
 
         expression = expression + number + "\u00B2" + " = " + resToStr(result);
-//        historyView.setText(expression);
-        expression += "\n";
+        String valueToSend = expression;
+        Log.v(TAG, expression + " TODO");
+        updateHistoryRecyclerView(valueToSend);
+        expression = "";
     }
 
     public String resToStr(Double result)  {
@@ -227,5 +241,18 @@ public class CalculateFragment extends Fragment {
             s = s.replaceAll("\\.(.*?)0+$", ".$1");
             return s;
         }
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof RecyclerViewUpdater) {
+            mainActivity = (RecyclerViewUpdater) context;
+        }
+    }
+    private void updateHistoryRecyclerView(String data) {
+        Log.v(TAG, data + " updateHistoryRecyclerView");
+        Boolean res = mainActivity.updateRecyclerViewData(data);
+        Log.v(TAG, data + " " + res);
     }
 }
